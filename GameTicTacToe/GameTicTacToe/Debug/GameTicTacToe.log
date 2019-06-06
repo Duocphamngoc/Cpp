@@ -1,0 +1,4 @@
+﻿  GameTicTacToe.cpp
+c:\users\techcare\desktop\caro3x3\gametictactoe\gametictactoe\gametictactoe.cpp(45): warning C4715: 'choose': not all control paths return a value
+  GameTicTacToe.vcxproj -> C:\Users\TechCare\Desktop\CARO3X3\GameTicTacToe\Debug\GameTicTacToe.exe
+  GameTicTacToe.vcxproj -> C:\Users\TechCare\Desktop\CARO3X3\GameTicTacToe\Debug\GameTicTacToe.pdb (Full PDB)
