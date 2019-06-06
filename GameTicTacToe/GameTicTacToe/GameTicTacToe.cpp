@@ -9,15 +9,16 @@ using namespace std;
 
 
 
-int a[n][n];
-int choose();
+string a[n][n];
+int checki1=-1;
 char *name1 = new char[10];
 char *name2 = new char[10];
 
+int choose();
 void wellcome();
 void InputUser();
 void InputStep(char *name, int i);
-void Display( int row, int colum, string tick);
+void Display(string mang[n][n]);
 
 
 int main()
@@ -31,7 +32,7 @@ int main()
 			else name = name1;
 			InputStep(name, sobuocdi);
 			sobuocdi++;
-	} while (sobuocdi<5);
+	} while (sobuocdi<15);
 	cout << "you are win!";
 	system("pause");
 	return 0;
@@ -71,27 +72,27 @@ void InputUser() {
 
 void InputStep(char *name, int i) {
 	int i1;
-	string tick;
-	cout << endl << "Your turn " << name << " - " << i <<": ";
-	cin >> i1;
-	int row = i1 % 10;
-	i1 = i1 / 10;
-	int colum = i1;
+	int max = n, row=-1, colum=-1;
+	
+	do {
+		cout << endl << "Your turn " << name << " - " << i << ": ";
+		cin >> i1;	
+		colum = i1 % 10;
+		i1 = i1 / 10;
+		row = i1;
+	} while (colum >= max || row >= max || a[row][colum] =="X" || a[row][colum] == "O");
 
-	if (name == name1) tick = "X";
-	else tick = "O";
-	Display(row, colum, tick);
+	if (name == name1) a[row][colum] = "X";
+	else a[row][colum] = "O";
+	Display(a);
 }
 
-void Display( int row, int colum, string tick) {
+void Display( string mang[n][n]) {
 	int len = n;
 	for (int i = 0; i < len; i++) {
 		for (int j = 0; j < len; j++) {
-			if (i == row && j == colum) {
-				cout << tick<<"|";
-				continue;
-			}
-			cout << " " << "|";
+			cout << mang[i][j] << "   |";
+	
 		}
 		cout << endl;
 	}
