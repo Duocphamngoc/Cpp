@@ -1,5 +1,4 @@
-// GameTicTacToe.cpp : Defines the entry point for the console application.
-//
+
 
 #include "stdafx.h"
 #include "iostream"
@@ -18,9 +17,9 @@ void wellcome();
 void InputUser();
 void InputStep(char *name, int i);
 void Display();
-int  CheckWin();
-void CheckROW();
-void CheckColum();
+bool  CheckWin();
+bool CheckROW();
+bool CheckColum();
 
 
 int main()
@@ -33,11 +32,16 @@ int main()
 			if (sobuocdi % 2 == 1) name = name2;
 			else name = name1;
 			InputStep(name, sobuocdi);
-			if (sobuocdi >= 4) CheckWin();
+			if (sobuocdi > 3) {
+				if (CheckWin()) {
+					cout << name << ": WIN" << endl;
+					system("pause");
+					return 1;
+				}
+			}
 			sobuocdi++;
 	} while (true);
-	cout << "you are win!";
-	system("pause");
+	
 	return 0;
 }
 
@@ -65,9 +69,10 @@ void InputUser() {
 	cin.ignore();
 	cout << "Enter Player 1 Name:  ";
 	fgets(name1,10,stdin);	
+	//cin.ignore();
 	cout <<endl<< "Enter Player 2 Name:  ";
 	fgets(name2, 10, stdin);
-	cin.ignore();
+	//cin.ignore();
 	cout <<name1<<name2<<"GAME SATART"<<endl<<endl;
 	
 }
@@ -94,20 +99,19 @@ void Display() {
 	for (int i = 0; i < len; i++) {
 		for (int j = 0; j < len; j++) {
 			cout << a[i][j] << "   |";
-	
 		}
 		cout << endl;
 	}
 
 }
 
-int CheckWin() {
-	CheckROW();
-	CheckColum();
-	return 1;
+bool CheckWin() {
+	if(CheckROW()) return true;
+	if(CheckColum()) return true;
+	return false;
 }
 
-void CheckROW() {
+bool CheckROW() {
 	int len = n, count = 0;
 	for (int i = 0; i < len; i++) {
 		for (int j = 1; j < len; j++) {
@@ -117,12 +121,12 @@ void CheckROW() {
 		}
 		if (count == 2) {
 			cout << "ok row  " << i << endl;
-			system("pause");
+			return true;
 		}
 	}
-
+	return false;
 }
-void CheckColum() {
+bool CheckColum() {
 	int len = n, count = 0;
 	for (int j = 0; j < len; j++) {
 		for (int i = 1; i < len; i++) {
@@ -132,7 +136,8 @@ void CheckColum() {
 		}
 		if (count == 2) {
 			cout << "ok  colum " << j << endl;
-			system("pause");
+			return true;
 		}
 	}
+	return false;
 }
