@@ -20,6 +20,7 @@ void InputStep(char *name, int i);
 void Display();
 int  CheckWin();
 void CheckROW();
+void CheckColum();
 
 
 int main()
@@ -102,6 +103,7 @@ void Display() {
 
 int CheckWin() {
 	CheckROW();
+	CheckColum();
 	return 1;
 }
 
@@ -114,9 +116,23 @@ void CheckROW() {
 			if (a[i][j] == a[i][j - 1]) count++;
 		}
 		if (count == 2) {
-			cout << "ok   " << i << endl;
+			cout << "ok row  " << i << endl;
 			system("pause");
 		}
 	}
 
+}
+void CheckColum() {
+	int len = n, count = 0;
+	for (int j = 0; j < len; j++) {
+		for (int i = 1; i < len; i++) {
+			if (a[0][j] == "") break;
+			if (a[i][j] == "") break;
+			if (a[i][j] == a[i-1][j]) count++;
+		}
+		if (count == 2) {
+			cout << "ok  colum " << j << endl;
+			system("pause");
+		}
+	}
 }
