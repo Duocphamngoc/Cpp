@@ -19,6 +19,7 @@ void wellcome();
 void InputUser();
 void InputStep(char *name, int i);
 void Display(string mang[n][n]);
+int  CheckWin(string mang[n][n]);
 
 
 int main()
@@ -97,4 +98,19 @@ void Display( string mang[n][n]) {
 		cout << endl;
 	}
 
+}
+
+int CheckWin(string mang[n][n]) {
+
+	int len = n;
+	for (int i = 0; i < len; i++) {
+		for (int j =1 ; j < len; j++) {
+			if (mang[i][j] == mang[i][j - 1])
+			{
+				cout << "WIN";
+				return 1;
+			}
+		}
+	}
+	return 0;
 }
