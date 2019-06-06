@@ -16,8 +16,8 @@ char *name2 = new char[10];
 
 void wellcome();
 void InputUser();
-void InputBuocDi(char *name, int i);
-void Display( int row, int colum);
+void InputStep(char *name, int i);
+void Display( int row, int colum, string tick);
 
 
 int main()
@@ -29,7 +29,7 @@ int main()
 	do {	
 			if (sobuocdi % 2 == 1) name = name2;
 			else name = name1;
-			InputBuocDi(name, sobuocdi);
+			InputStep(name, sobuocdi);
 			sobuocdi++;
 	} while (sobuocdi<5);
 	cout << "you are win!";
@@ -69,21 +69,29 @@ void InputUser() {
 	
 }
 
-void InputBuocDi(char *name, int i) {
+void InputStep(char *name, int i) {
 	int i1;
+	string tick;
 	cout << endl << "Your turn " << name << " - " << i <<": ";
 	cin >> i1;
-	int temp1 = i1 % 10;
+	int row = i1 % 10;
 	i1 = i1 / 10;
-	int temp2 = i1;
-	a[temp1][temp2] = 1;
-	Display(1, 1);
+	int colum = i1;
+
+	if (name == name1) tick = "X";
+	else tick = "O";
+	Display(row, colum, tick);
 }
 
-void Display( int row, int colum) {
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			cout << "0" << "|";
+void Display( int row, int colum, string tick) {
+	int len = n;
+	for (int i = 0; i < len; i++) {
+		for (int j = 0; j < len; j++) {
+			if (i == row && j == colum) {
+				cout << tick<<"|";
+				continue;
+			}
+			cout << " " << "|";
 		}
 		cout << endl;
 	}
