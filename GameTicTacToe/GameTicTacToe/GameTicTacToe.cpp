@@ -10,7 +10,6 @@ using namespace std;
 
 
 string a[n][n];
-int checki1=-1;
 char *name1 = new char[10];
 char *name2 = new char[10];
 
@@ -18,8 +17,9 @@ int choose();
 void wellcome();
 void InputUser();
 void InputStep(char *name, int i);
-void Display(string mang[n][n]);
-int  CheckWin(string mang[n][n]);
+void Display();
+int  CheckWin();
+void CheckROW();
 
 
 int main()
@@ -32,8 +32,9 @@ int main()
 			if (sobuocdi % 2 == 1) name = name2;
 			else name = name1;
 			InputStep(name, sobuocdi);
+			if (sobuocdi >= 4) CheckWin();
 			sobuocdi++;
-	} while (sobuocdi<15);
+	} while (true);
 	cout << "you are win!";
 	system("pause");
 	return 0;
@@ -62,8 +63,7 @@ int choose() {
 void InputUser() {
 	cin.ignore();
 	cout << "Enter Player 1 Name:  ";
-	fgets(name1,10,stdin);
-	
+	fgets(name1,10,stdin);	
 	cout <<endl<< "Enter Player 2 Name:  ";
 	fgets(name2, 10, stdin);
 	cin.ignore();
@@ -85,14 +85,14 @@ void InputStep(char *name, int i) {
 
 	if (name == name1) a[row][colum] = "X";
 	else a[row][colum] = "O";
-	Display(a);
+	Display();
 }
 
-void Display( string mang[n][n]) {
+void Display() {
 	int len = n;
 	for (int i = 0; i < len; i++) {
 		for (int j = 0; j < len; j++) {
-			cout << mang[i][j] << "   |";
+			cout << a[i][j] << "   |";
 	
 		}
 		cout << endl;
@@ -100,17 +100,23 @@ void Display( string mang[n][n]) {
 
 }
 
-int CheckWin(string mang[n][n]) {
+int CheckWin() {
+	CheckROW();
+	return 1;
+}
 
-	int len = n;
+void CheckROW() {
+	int len = n, count = 0;
 	for (int i = 0; i < len; i++) {
-		for (int j =1 ; j < len; j++) {
-			if (mang[i][j] == mang[i][j - 1])
-			{
-				cout << "WIN";
-				return 1;
-			}
+		for (int j = 1; j < len; j++) {
+			if (a[i][0] == "") break;
+			if (a[i][j] == "") break;
+			if (a[i][j] == a[i][j - 1]) count++;
+		}
+		if (count == 2) {
+			cout << "ok   " << i << endl;
+			system("pause");
 		}
 	}
-	return 0;
+
 }
