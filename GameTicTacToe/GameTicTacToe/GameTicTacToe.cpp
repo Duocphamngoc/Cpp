@@ -9,7 +9,9 @@ using namespace std;
 string name1, name2;
 void wellcome();
 int choose();
-int InputUser();
+void InputUser();
+
+
 
 
 int main()
@@ -47,7 +49,7 @@ int choose() {
 		}
 	}
 
-int InputUser() {
+void InputUser() {
 
 	cout << "Enter Player 1 Name:  ";
 	cin >> name1;
@@ -56,6 +58,6 @@ int InputUser() {
 	
 	cin >> name2;
 
-	cout << name1 << name2<<endl;
-	return 0;
+	cout <<"GAME SATART"<<endl<<endl;
+	
 }
