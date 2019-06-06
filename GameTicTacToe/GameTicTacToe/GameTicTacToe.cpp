@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "iostream"
 #include "string"
-#define n 3
+#define n 5
 using namespace std;
 
 
