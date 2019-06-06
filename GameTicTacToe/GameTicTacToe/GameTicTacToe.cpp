@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "iostream"
 #include "string"
-#define n 4
+#define n 3
 using namespace std;
 
 
@@ -114,7 +114,6 @@ bool CheckWin() {
 	if(CheckColum()) return true;
 	if (CheckDiagonalLineLeft()) return true;
 	if (CheckDiagonalLineRight()) return true;
-	
 	return false;
 }
 
