@@ -6,7 +6,9 @@
 #include "string"
 using namespace std;
 
-string name1, name2;
+
+char *name1 = new char[10];
+char *name2 = new char[10];
 void wellcome();
 int choose();
 void InputUser();
@@ -18,6 +20,10 @@ int main()
 {
 	wellcome();
 	choose();
+	int a[3][3];
+	
+
+
 
 	system("pause");
 	return 0;
@@ -50,14 +56,13 @@ int choose() {
 	}
 
 void InputUser() {
-
+	cin.ignore();
 	cout << "Enter Player 1 Name:  ";
-	cin >> name1;
+	fgets(name1,10,stdin);
 
 	cout <<endl<< "Enter Player 2 Name:  ";
-	
-	cin >> name2;
+	fgets(name2, 10, stdin);
 
-	cout <<"GAME SATART"<<endl<<endl;
+	cout <<name1<<name2<<"GAME SATART"<<endl<<endl;
 	
 }
