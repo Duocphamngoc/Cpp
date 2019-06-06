@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "iostream"
 #include "string"
-#define n 3
+#define n 4
 using namespace std;
 
 
@@ -26,7 +26,8 @@ bool CheckDiagonalLineRight();
 int main()
 {
 	wellcome();
-	choose();
+	int exit = choose();
+	if (exit == 0) return 0;
 	int sobuocdi = 0;
 	char *name = name1;
 	do {	
@@ -60,10 +61,12 @@ int choose() {
 		{
 			case 1:
 					InputUser();
+					break;
 
 			default :
 					return 0;
 		}
+	return 1;
 	}
 
 void InputUser() {
@@ -124,7 +127,7 @@ bool CheckROW() {
 			if (a[i][j] == a[i][j - 1]) count++;
 		}
 		if (count == 2) {
-			cout << "ok row  " << i << endl;
+			cout << "OK Row  " << i << endl;
 			return true;
 		}
 	}
@@ -139,7 +142,7 @@ bool CheckColum() {
 			if (a[i][j] == a[i-1][j]) count++;
 		}
 		if (count == 2) {
-			cout << "ok  colum " << j << endl;
+			cout << "OK Colum " << j << endl;
 			return true;
 		}
 	}
@@ -154,7 +157,7 @@ bool CheckDiagonalLineLeft() {
 			if (a[i][i] == a[i-1][i-1]) count++;
 		}
 		if (count == 2) {
-			cout << "ok DiagonaLine  " << endl;
+			cout << "OK DiagonaLine Left " << endl;
 			return true;
 	}
 	return false;
@@ -170,7 +173,7 @@ bool CheckDiagonalLineRight() {
 		j--;
 	}
 	if (count == 2) {
-		cout << "ok DiagonaLine  " << endl;
+		cout << "OK DiagonaLine Right  " << endl;
 		return true;
 	}
 	return false;
