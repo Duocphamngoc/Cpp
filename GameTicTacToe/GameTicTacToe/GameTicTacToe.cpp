@@ -20,7 +20,8 @@ void Display();
 bool  CheckWin();
 bool CheckROW();
 bool CheckColum();
-
+bool CheckDiagonalLineLeft();
+bool CheckDiagonalLineRight();
 
 int main()
 {
@@ -108,6 +109,9 @@ void Display() {
 bool CheckWin() {
 	if(CheckROW()) return true;
 	if(CheckColum()) return true;
+	if (CheckDiagonalLineLeft()) return true;
+	if (CheckDiagonalLineRight()) return true;
+	
 	return false;
 }
 
@@ -140,4 +144,35 @@ bool CheckColum() {
 		}
 	}
 	return false;
+}
+
+bool CheckDiagonalLineLeft() {
+	int len = n, count = 0;
+	for (int i = 1; i < len; i++) {
+			if (a[0][0] == "") break;
+			if (a[i][i] == "") break;
+			if (a[i][i] == a[i-1][i-1]) count++;
+		}
+		if (count == 2) {
+			cout << "ok DiagonaLine  " << endl;
+			return true;
+	}
+	return false;
+
+}
+
+bool CheckDiagonalLineRight() {
+	int len = n, count = 0;
+	int j = n-1;
+	for (int i = 0; i < len; i++) {
+		if (a[i][j] == "") break;
+		if (a[i+1][j-1] == a[i][j]) count++;
+		j--;
+	}
+	if (count == 2) {
+		cout << "ok DiagonaLine  " << endl;
+		return true;
+	}
+	return false;
+
 }
