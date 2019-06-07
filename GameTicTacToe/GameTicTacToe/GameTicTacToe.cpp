@@ -125,7 +125,7 @@ bool CheckROW() {
 			if (a[i][j] == "") break;
 			if (a[i][j] == a[i][j - 1]) count++;
 		}
-		if (count == 2) {
+		if (count == len-1) {
 			cout << "OK Row  " << i << endl;
 			return true;
 		}
@@ -140,7 +140,7 @@ bool CheckColum() {
 			if (a[i][j] == "") break;
 			if (a[i][j] == a[i-1][j]) count++;
 		}
-		if (count == 2) {
+		if (count == len - 1) {
 			cout << "OK Colum " << j << endl;
 			return true;
 		}
@@ -155,7 +155,7 @@ bool CheckDiagonalLineLeft() {
 			if (a[i][i] == "") break;
 			if (a[i][i] == a[i-1][i-1]) count++;
 		}
-		if (count == 2) {
+		if (count == len -1) {
 			cout << "OK DiagonaLine Left " << endl;
 			return true;
 	}
@@ -171,7 +171,7 @@ bool CheckDiagonalLineRight() {
 		if (a[i+1][j-1] == a[i][j]) count++;
 		j--;
 	}
-	if (count == 2) {
+	if (count == len-1) {
 		cout << "OK DiagonaLine Right  " << endl;
 		return true;
 	}
