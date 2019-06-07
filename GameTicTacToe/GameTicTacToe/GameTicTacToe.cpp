@@ -3,9 +3,9 @@
 #include "stdafx.h"
 #include "iostream"
 #include "string"
+#include "Header.h"
 #define n 5
 using namespace std;
-
 
 
 string a[n][n];
@@ -13,15 +13,6 @@ char *name1 = new char[80];
 char *name2 = new char[80];
 
 int choose();
-void wellcome();
-void InputUser();
-void InputStep(char *name, int i);
-void Display();
-bool  CheckWin();
-bool CheckROW();
-bool CheckColum();
-bool CheckDiagonalLineLeft();
-bool CheckDiagonalLineRight();
 
 int main()
 {
