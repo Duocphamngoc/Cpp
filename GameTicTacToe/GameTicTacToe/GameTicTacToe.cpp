@@ -9,8 +9,8 @@ using namespace std;
 
 
 string a[n][n];
-char *name1 = new char[10];
-char *name2 = new char[10];
+char *name1 = new char[80];
+char *name2 = new char[80];
 
 int choose();
 void wellcome();
@@ -72,10 +72,10 @@ int choose() {
 void InputUser() {
 	cin.ignore();
 	cout << "Enter Player 1 Name:  ";
-	fgets(name1,10,stdin);	
+	fgets(name1,80,stdin);	
 	//cin.ignore();
 	cout <<endl<< "Enter Player 2 Name:  ";
-	fgets(name2, 10, stdin);
+	fgets(name2, 80, stdin);
 	//cin.ignore();
 	cout <<name1<<name2<<"GAME SATART"<<endl<<endl;
 	
