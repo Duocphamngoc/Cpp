@@ -56,7 +56,7 @@ int menu() {
 	case 0:
 		return 0;
 	case 1:
-		input(student);
+		input();
 	case 2:
 		display();
 	}
