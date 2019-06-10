@@ -1,3 +1,2 @@
 ﻿  QUANLY.cpp
-  QUANLY.vcxproj -> C:\Users\TechCare\Desktop\CONTRO\QUANLY\Debug\QUANLY.exe
-  QUANLY.vcxproj -> C:\Users\TechCare\Desktop\CONTRO\QUANLY\Debug\QUANLY.pdb (Full PDB)
+c:\users\techcare\desktop\contro\quanly\quanly\quanly.cpp(59): error C2660: 'input': function does not take 1 arguments

@@ -15,12 +15,12 @@ struct STUDENT
 STUDENT * student = new STUDENT[3];
 
 
-void input(STUDENT * std) {
+void input() {
 	
 	for (int i = 0; i < 3;i++) {
-		std[i].ID = i + 1;
+		student[i].ID = i + 1;
 		cout << "Enter Name: "<<endl;
-		getline(cin, std[i].NAME);
+		getline(cin, student[i].NAME);
 		
 		cout << "Enter Score: " << endl;
 		cin >> student[i].SCORE;
@@ -37,7 +37,7 @@ void display() {
 
 }
 
-void menu() {
+int menu() {
 	cout << "------------------MENU----------------" << endl;
 	cout << "	1. INPUT" << endl;
 	cout << "	2. DISPLAY" << endl;
@@ -54,7 +54,7 @@ void menu() {
 	switch (choose)
 	{
 	case 0:
-		return;
+		return 0;
 	case 1:
 		input(student);
 	case 2:
@@ -62,12 +62,13 @@ void menu() {
 	}
 
 }
+
+
 int main()
 {
 	while (true) {
-		menu();
+		if(!menu()) break;
 	}
-	system("pause");
     return 0;
 }
 
