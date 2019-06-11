@@ -57,9 +57,11 @@ void Input() {
 		student[i].id = x;
 		cout << "Enter Name: " << endl;
 		getline(cin, student[i].name);
-		cout << "Enter Score: " << endl;
-		cin >> student[i].score;
-		cin.ignore();
+		do {
+			cout << "Enter Score: " << endl;
+			cin >> student[i].score;
+			cin.ignore();
+		} while (-0.9 > student[i].score || student[i].score>10);
 	}
 
 }
