@@ -5,14 +5,14 @@
 #include "iostream"
 #include "string"
 #include <fstream>
-#define NumberOfStudent 3
+#define MaxNumberOfStudent 100
 
 using namespace std;
 
 
-void Input();
-void Display();
-void SaveToFile();
+void Input(int&, int);
+void Display(int);
+void SaveToFile(int);
 void LoadFromFile();
 int Menu();
 struct Student
@@ -21,8 +21,9 @@ struct Student
 	string name;
 	float score;
 };
-Student * student = new Student[NumberOfStudent];
+Student * student = new Student[MaxNumberOfStudent];
 fstream f;
+int numtail = 0; // init amount student;
 
 
 int main()
@@ -35,9 +36,9 @@ int main()
     return 0;
 }
 
-void Input() {
+void Input(int & n, int m) {
 	bool check = false;
-	for (int i = 0; i < NumberOfStudent; i++)
+	for (int i = n; i < n+m; i++)
 	{
 		int x;
 		do {
@@ -65,22 +66,23 @@ void Input() {
 			cin.ignore();
 		} while (-0.9 > student[i].score || student[i].score>10);
 	}
+	n += m;
 }
 
-void Display() {
+void Display(int n) {
 	cout << "ID           FULLNAME          SCORE" << endl;
-	for (int i = 0; i < NumberOfStudent; i++)
+	for (int i = 0; i < n; i++)
 	{
 		cout << student[i].id << "            " << student[i].name << "            " << student[i].score << endl;
 	}
 
 }
 
-void SaveToFile() {
+void SaveToFile(int n) {
 	f.open("output.txt", ios::out);
-	for (int i = 0; i < NumberOfStudent; i++) {
-		f << student[i].id << " ";
-		f << student[i].name << " ";
+	for (int i = 0; i < n; i++) {
+		f << student[i].id << ",";
+		f << student[i].name << ",";
 		f << student[i].score << endl;
 	}
 	f.close();
@@ -119,7 +121,7 @@ void LoadFromFile() {
 		
 		i++;
 	}
-	
+		numtail = i;
 		f.close();
 	
 }
@@ -135,7 +137,7 @@ int Menu()
 	cout << "------------------------------------" << endl;
 	cout << "choose: ";
 	int choose;
-	
+	int n;
 	do 
 	{
 		cin >> choose;
@@ -147,13 +149,15 @@ int Menu()
 	case 0:
 		return 0;
 	case 1:
-		Input();
+		cout << "Enter the number of student can manager: ";
+		cin >> n;
+		Input(numtail,n);
 		break;
 	case 2:
-		Display();
+		Display(numtail);
 		break;
 	case 3:
-		SaveToFile();
+		SaveToFile(numtail);
 		break;
 	case 4:
 		LoadFromFile();
