@@ -1,5 +1,6 @@
-﻿  QUANLY.cpp
-c:\users\techcare\desktop\contro\quanly\quanly\quanly.cpp(103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\techcare\desktop\contro\quanly\quanly\quanly.cpp(154): warning C4715: 'Menu': not all control paths return a value
+﻿  stdafx.cpp
+  QUANLY.cpp
+c:\users\techcare\desktop\contro\quanly\quanly\quanly.cpp(106): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\techcare\desktop\contro\quanly\quanly\quanly.cpp(158): warning C4715: 'Menu': not all control paths return a value
   QUANLY.vcxproj -> C:\Users\TechCare\Desktop\CONTRO\QUANLY\Debug\QUANLY.exe
   QUANLY.vcxproj -> C:\Users\TechCare\Desktop\CONTRO\QUANLY\Debug\QUANLY.pdb (Full PDB)

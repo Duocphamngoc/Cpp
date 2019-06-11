@@ -5,6 +5,8 @@
 #include "iostream"
 #include "string"
 #include <fstream>
+#define NumberOfStudent 3
+
 using namespace std;
 
 
@@ -13,15 +15,16 @@ void Display();
 void SaveToFile();
 void LoadFromFile();
 int Menu();
-
+int size;
 struct Student
 {
 	int id;
 	string name;
 	float score;
 };
-Student * student = new Student[3];
+Student * student = new Student[NumberOfStudent];
 fstream f;
+
 
 int main()
 {	
@@ -34,8 +37,8 @@ int main()
 
 void Input() {
 	bool check = false;
-	
-	for (int i = 0; i < 3; i++)
+
+	for (int i = 0; i < NumberOfStudent; i++)
 	{
 		int x;
 		do {
@@ -68,7 +71,7 @@ void Input() {
 
 void Display() {
 	cout << "ID           FULLNAME          SCORE" << endl;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < NumberOfStudent; i++)
 	{
 		cout << student[i].id << "            " << student[i].name << "            " << student[i].score << endl;
 	}
@@ -77,7 +80,7 @@ void Display() {
 
 void SaveToFile() {
 	f.open("output.txt", ios::out);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < NumberOfStudent; i++) {
 		f << student[i].id << " ";
 		f << student[i].name << " ";
 		f << student[i].score << endl;
@@ -133,6 +136,7 @@ int Menu() {
 	cout << "------------------------------------" << endl;
 	cout << "choose: ";
 	int choose;
+	
 	do {
 		cin >> choose;
 		cin.ignore();
