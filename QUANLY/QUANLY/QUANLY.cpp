@@ -15,7 +15,6 @@ void Display();
 void SaveToFile();
 void LoadFromFile();
 int Menu();
-int size;
 struct Student
 {
 	int id;
@@ -30,14 +29,14 @@ int main()
 {	
 	while (true) {
 		if(!Menu()) break;
-	}	
+	}
 	system("pause");
+	delete[] student;
     return 0;
 }
 
 void Input() {
 	bool check = false;
-
 	for (int i = 0; i < NumberOfStudent; i++)
 	{
 		int x;
@@ -66,7 +65,6 @@ void Input() {
 			cin.ignore();
 		} while (-0.9 > student[i].score || student[i].score>10);
 	}
-
 }
 
 void Display() {
@@ -126,7 +124,8 @@ void LoadFromFile() {
 	
 }
 
-int Menu() {
+int Menu() 
+{
 	cout << "------------------MENU----------------" << endl;
 	cout << "	1. INPUT" << endl;
 	cout << "	2. DISPLAY" << endl;
@@ -137,22 +136,27 @@ int Menu() {
 	cout << "choose: ";
 	int choose;
 	
-	do {
+	do 
+	{
 		cin >> choose;
 		cin.ignore();
 	} while (choose<0 && choose >= 5);
+
 	switch (choose)
 	{
 	case 0:
 		return 0;
 	case 1:
 		Input();
+		break;
 	case 2:
 		Display();
+		break;
 	case 3:
 		SaveToFile();
+		break;
 	case 4:
 		LoadFromFile();
+		break;
 	}
-
 }
