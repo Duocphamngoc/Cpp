@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "iostream"
 #include "string"
+#include <fstream>
 using namespace std;
 
 struct STUDENT
@@ -13,15 +14,14 @@ struct STUDENT
 	float SCORE;
 };
 STUDENT * student = new STUDENT[3];
+fstream f;
 
 
 void input() {
-	
 	for (int i = 0; i < 3;i++) {
 		student[i].ID = i + 1;
 		cout << "Enter Name: "<<endl;
 		getline(cin, student[i].NAME);
-		
 		cout << "Enter Score: " << endl;
 		cin >> student[i].SCORE;
 		cin.ignore();
@@ -35,6 +35,16 @@ void display() {
 		cout << student[i].ID << "            " << student[i].NAME << "            " << student[i].SCORE<<endl;
 	}
 
+}
+
+void saveToFile() {
+	f.open("output.txt", ios::out);
+	for (int i = 0; i < 3; i++) {
+		f << student[i].ID << " ";
+		f << student[i].NAME << " ";
+		f << student[i].SCORE << endl;
+	}
+	f.close();
 }
 
 int menu() {
@@ -59,6 +69,8 @@ int menu() {
 		input();
 	case 2:
 		display();
+	case 3:
+		saveToFile();
 	}
 
 }
@@ -66,9 +78,12 @@ int menu() {
 
 int main()
 {
+	
 	while (true) {
 		if(!menu()) break;
 	}
+	
+	system("pause");
     return 0;
 }
 
