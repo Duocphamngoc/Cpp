@@ -33,9 +33,28 @@ int main()
 }
 
 void Input() {
+	bool check = false;
+	
 	for (int i = 0; i < 3; i++)
 	{
-		student[i].id = i + 1;
+		int x;
+		do {
+			cout << "Enter ID Student: " << endl;
+			cin >> x;
+			cin.ignore();
+			for (int j = 0; j < i; j++)
+			{	
+				if (x == student[j].id)
+				{
+					check = true;
+					break;
+				}
+				else {
+					check = false;
+				}
+			}
+		} while (check);
+		student[i].id = x;
 		cout << "Enter Name: " << endl;
 		getline(cin, student[i].name);
 		cout << "Enter Score: " << endl;
