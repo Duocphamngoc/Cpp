@@ -7,47 +7,102 @@
 #include <fstream>
 using namespace std;
 
-struct STUDENT
+
+void Input();
+void Display();
+void SaveToFile();
+void LoadFromFile();
+int Menu();
+
+struct Student
 {
-	int ID;
-	string NAME;
-	float SCORE;
+	int id;
+	string name;
+	float score;
 };
-STUDENT * student = new STUDENT[3];
+Student * student = new Student[3];
 fstream f;
 
+int main()
+{	
+	while (true) {
+		if(!Menu()) break;
+	}	
+	system("pause");
+    return 0;
+}
 
-void input() {
-	for (int i = 0; i < 3;i++) {
-		student[i].ID = i + 1;
-		cout << "Enter Name: "<<endl;
-		getline(cin, student[i].NAME);
+void Input() {
+	for (int i = 0; i < 3; i++)
+	{
+		student[i].id = i + 1;
+		cout << "Enter Name: " << endl;
+		getline(cin, student[i].name);
 		cout << "Enter Score: " << endl;
-		cin >> student[i].SCORE;
+		cin >> student[i].score;
 		cin.ignore();
 	}
 
 }
 
-void display() {
+void Display() {
 	cout << "ID           FULLNAME          SCORE" << endl;
-	for (int i = 0; i < 3;i++) {
-		cout << student[i].ID << "            " << student[i].NAME << "            " << student[i].SCORE<<endl;
+	for (int i = 0; i < 3; i++)
+	{
+		cout << student[i].id << "            " << student[i].name << "            " << student[i].score << endl;
 	}
 
 }
 
-void saveToFile() {
+void SaveToFile() {
 	f.open("output.txt", ios::out);
 	for (int i = 0; i < 3; i++) {
-		f << student[i].ID << " ";
-		f << student[i].NAME << " ";
-		f << student[i].SCORE << endl;
+		f << student[i].id << " ";
+		f << student[i].name << " ";
+		f << student[i].score << endl;
 	}
 	f.close();
 }
 
-int menu() {
+void LoadFromFile() {
+	f.open("input.txt", ios::in);
+	string line;
+	string str;
+	int index;
+	int i = 0;
+	while (!f.eof())
+	{
+		getline(f, line);
+		while (true) {
+	
+			index = line.find(",");
+			if (index == -1)
+			{
+				str = line;
+				student[i].score = stoi(line);
+				break;
+			}
+			str = line.substr(0, index);
+			if (str.length() < 4)
+			{
+				student[i].id = stoi(str);
+			}
+			else
+			{
+				student[i].name = str;
+			}
+			line.replace(0,index+1,"");
+			
+		}
+		
+		i++;
+	}
+	
+		f.close();
+	
+}
+
+int Menu() {
 	cout << "------------------MENU----------------" << endl;
 	cout << "	1. INPUT" << endl;
 	cout << "	2. DISPLAY" << endl;
@@ -66,24 +121,13 @@ int menu() {
 	case 0:
 		return 0;
 	case 1:
-		input();
+		Input();
 	case 2:
-		display();
+		Display();
 	case 3:
-		saveToFile();
+		SaveToFile();
+	case 4:
+		LoadFromFile();
 	}
 
 }
-
-
-int main()
-{
-	
-	while (true) {
-		if(!menu()) break;
-	}
-	
-	system("pause");
-    return 0;
-}
-
