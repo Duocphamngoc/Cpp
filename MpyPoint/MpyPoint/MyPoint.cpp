@@ -4,7 +4,12 @@
 #include "string.h"
 #include "math.h"
 
-MyPoint::MyPoint() {};
+using namespace std;
+
+MyPoint::MyPoint() {
+	mPosX = 0;
+	mPosY = 0;
+};
 MyPoint::MyPoint(int x, int y)
 {
 	mPosX = x;
@@ -12,8 +17,8 @@ MyPoint::MyPoint(int x, int y)
 }
 
 void MyPoint::Display() {
-	std::cout << "Value mPosX = " << mPosX;
-	std::cout << "Value mPosY = " << mPosY;
+	cout << "Value mPosX = " << mPosX<<endl;
+	cout << "Value mPosY = " << mPosY<<endl;
 }
 
 void MyPoint::SetX(int x) {
@@ -43,7 +48,7 @@ float MyPoint::Distance(MyPoint* p) {
 int main() {
 	MyPoint* p1 = new MyPoint(12, 14);
 	MyPoint* p2 = new MyPoint(5, 6);
-	std::cout<<"Distance between 2 points is: "<< p1->Distance(p2);
+	cout<<"Distance between 2 points is: "<< p1->Distance(p2)<<endl;
 	system("pause");
 	return 0 ;
 }
