@@ -9,4 +9,6 @@ public:
 	void Display();
 	void SetX(int);
 	int GetX();
+	void SetY(int);
+	int GetY();
 };

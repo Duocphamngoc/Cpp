@@ -22,6 +22,15 @@ void MyPoint::SetX(int x) {
 int MyPoint::GetX() {
 	return mPosX;
 }
+
+void MyPoint::SetY(int y) {
+	mPosY = y;
+}
+
+int MyPoint::GetY() {
+	return mPosY;
+}
+
 int main() {
 	return 0 ;
 }
