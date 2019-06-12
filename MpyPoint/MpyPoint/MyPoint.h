@@ -6,5 +6,5 @@ private:
 public:
 	MyPoint();
 	MyPoint(int, int);
-	
+	void Display();
 };
