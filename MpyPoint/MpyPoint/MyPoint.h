@@ -7,4 +7,6 @@ public:
 	MyPoint();
 	MyPoint(int, int);
 	void Display();
+	void SetX(int);
+	int GetX();
 };

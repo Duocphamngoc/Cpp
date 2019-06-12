@@ -15,7 +15,13 @@ void MyPoint::Display() {
 	std::cout << "Value mPosY = " << mPosY;
 }
 
+void MyPoint::SetX(int x) {
+	mPosX = x;
+}
 
+int MyPoint::GetX() {
+	return mPosX;
+}
 int main() {
 	return 0 ;
 }
