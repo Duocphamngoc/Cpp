@@ -8,11 +8,16 @@
 using namespace std;
 
 
-Virus::Virus() {
+MyVirus::MyVirus() {
+	// LoadADNInformation();
+}
+
+MyVirus::~MyVirus() {
 
 }
 
-void Virus::LoadADNInformation() {
+
+void MyVirus::LoadADNInformation() {
 	fstream f;
 	f.open("ATGX.bin",ios::in);
 	string data= "";
@@ -21,25 +26,28 @@ void Virus::LoadADNInformation() {
 		getline(f, data);
 	} 
 	m_dna = new char[100];
-	int i = 0;
-	while (i<data.length()) {
+	int unsigned i = 0;
+	while (i < data.length() ) {
 		m_dna[i] = data[i];
 		i++;
 	}
 	f.close();
 }
 
-void Virus::ReduceResistance(int medicine_resistance) {
+void MyVirus::get_m_dna() {
+	int unsigned i = 0;
+	while (i < 50) {
+		cout << m_dna[i];
+		i++;
+	}
+}
+
+void MyVirus::ReduceResistance(int medicine_resistance) {
 	m_resistance -= medicine_resistance;
 	if (m_resistance <= 0) delete this;
 }
 
 
-int main()
-{
-	Virus * v = new Virus();
-	v->LoadADNInformation();
-	system("pause");
-    return 0;
-}
+
+
 

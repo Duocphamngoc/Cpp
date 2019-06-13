@@ -1,18 +1,22 @@
 #pragma once
-class Virus{
+class MyVirus{
 private:
 	char* m_dna;
 	int m_resistance;
 	
 public:
-	Virus();
-	~Virus();
-	Virus(Virus* virus);
+	MyVirus();
+	~MyVirus();
 	void LoadADNInformation();
 	void ReduceResistance(int);
-	virtual void DoBorn();
-	virtual void DoClone();
-	virtual void DoDie();
-	virtual void InitResistance();
-
+	void get_m_dna();
+	virtual void DoBorn()=0;
+//	virtual void DoClone()=0;
+//	virtual void DoDie()=0;
+//	virtual void InitResistance()=0;
 };
+
+
+
+
+
