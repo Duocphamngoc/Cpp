@@ -1,5 +1,4 @@
 #pragma once
-#include <fstream>
 class Virus{
 private:
 	char* m_dna;
@@ -10,10 +9,10 @@ public:
 	~Virus();
 	Virus(Virus* virus);
 	void LoadADNInformation();
-	int ReduceResistance(int);
-	virtual void DoBorn();
-	virtual void DoClone();
-	virtual void DoDie();
-	virtual void InitResistance();
+	//int ReduceResistance(int);
+	//virtual void DoBorn();
+	//virtual void DoClone();
+	//virtual void DoDie();
+	//virtual void InitResistance();
 
 };
