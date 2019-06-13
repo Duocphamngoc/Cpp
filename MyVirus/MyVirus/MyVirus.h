@@ -9,10 +9,10 @@ public:
 	~Virus();
 	Virus(Virus* virus);
 	void LoadADNInformation();
-	//int ReduceResistance(int);
-	//virtual void DoBorn();
-	//virtual void DoClone();
-	//virtual void DoDie();
-	//virtual void InitResistance();
+	void ReduceResistance(int);
+	virtual void DoBorn();
+	virtual void DoClone();
+	virtual void DoDie();
+	virtual void InitResistance();
 
 };

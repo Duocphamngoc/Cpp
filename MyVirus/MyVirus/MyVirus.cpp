@@ -29,6 +29,11 @@ void Virus::LoadADNInformation() {
 	f.close();
 }
 
+void Virus::ReduceResistance(int medicine_resistance) {
+	m_resistance -= medicine_resistance;
+	if (m_resistance <= 0) delete this;
+}
+
 
 int main()
 {
