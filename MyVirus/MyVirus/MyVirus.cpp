@@ -9,7 +9,7 @@ using namespace std;
 
 
 MyVirus::MyVirus() {
-	// LoadADNInformation();
+	
 }
 
 MyVirus::~MyVirus() {
@@ -34,7 +34,7 @@ void MyVirus::LoadADNInformation() {
 	f.close();
 }
 
-void MyVirus::get_m_dna() {
+void MyVirus::Get_Properties() {
 	int unsigned i = 0;
 	while (i < 50) {
 		cout << m_dna[i];

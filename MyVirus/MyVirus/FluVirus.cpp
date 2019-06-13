@@ -21,10 +21,9 @@ void FluVirus::DoBorn() {
 	srand(time(NULL));
 	int color = rand()%2;
 	if (color) {
-		m_color = red;
+		this->m_color = red;
 	}
 	else {
-		m_color = blue;
+		this->m_color = blue;
 	}
-	cout << m_color;
 }

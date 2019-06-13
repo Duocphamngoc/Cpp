@@ -1,6 +1,6 @@
 #pragma once
 class MyVirus{
-private:
+protected:
 	char* m_dna;
 	int m_resistance;
 	
@@ -9,7 +9,7 @@ public:
 	~MyVirus();
 	void LoadADNInformation();
 	void ReduceResistance(int);
-	void get_m_dna();
+	virtual void Get_Properties()=0;
 	virtual void DoBorn()=0;
 //	virtual void DoClone()=0;
 //	virtual void DoDie()=0;
