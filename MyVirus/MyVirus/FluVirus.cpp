@@ -27,3 +27,8 @@ void FluVirus::DoBorn() {
 		this->m_color = blue;
 	}
 }
+
+void FluVirus::DoClone() {
+
+
+}

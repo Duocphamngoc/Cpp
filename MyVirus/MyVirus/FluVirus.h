@@ -6,5 +6,5 @@ public:
 	FluVirus();
 	~FluVirus();
 	void DoBorn() override;
-
+	void DoClone() override;
 };
