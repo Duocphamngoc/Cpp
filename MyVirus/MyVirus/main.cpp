@@ -22,6 +22,7 @@ int main()
 	dengue_F1->Get_Properties();
 	(dengue_F1+1)->Get_Properties();
 
+
 	system("pause");
 	return 0;
 }

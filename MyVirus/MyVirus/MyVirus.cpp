@@ -16,6 +16,13 @@ MyVirus::~MyVirus() {
 
 }
 
+void MyVirus::Get_Properties() {
+	int unsigned i = 0;
+	while (i < 50) {
+		cout << m_dna[i];
+		i++;
+	}
+}
 
 void MyVirus::LoadADNInformation() {
 	fstream f;
@@ -34,18 +41,12 @@ void MyVirus::LoadADNInformation() {
 	f.close();
 }
 
-void MyVirus::Get_Properties() {
-	int unsigned i = 0;
-	while (i < 50) {
-		cout << m_dna[i];
-		i++;
-	}
-}
-
 void MyVirus::ReduceResistance(int medicine_resistance) {
 	m_resistance -= medicine_resistance;
 	if (m_resistance <= 0) delete this;
 }
+
+
 
 
 

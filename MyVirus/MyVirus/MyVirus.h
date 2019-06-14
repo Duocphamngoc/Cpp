@@ -12,6 +12,7 @@ public:
 	void Get_Properties();
 	virtual void DoBorn()=0;
 	virtual MyVirus* DoClone( )=0;
+
 //	virtual void DoDie()=0;
 //	virtual void InitResistance()=0;
 };

@@ -7,7 +7,7 @@ public:
 	~FluVirus();
 	void Get_Properties();
 	void DoBorn() override;
+//<<<<<<< HEAD
 	FluVirus* DoClone( ) override;
 
 
-};

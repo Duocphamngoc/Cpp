@@ -12,7 +12,7 @@ DengueVirus::DengueVirus() {
 }
 
 DengueVirus::~DengueVirus() {
-
+	
 }
 void DengueVirus::Get_Properties() {
 	MyVirus::Get_Properties();
@@ -38,13 +38,10 @@ void DengueVirus::DoBorn() {
 	case 0:	
 		m_protein = strProtein_1;
 		break;
-
 	case 1:
-
 		m_protein = strProtein_2;
 		break;
 	case 2:
-
 		m_protein = strProtein_3;
 		break;
 	}
