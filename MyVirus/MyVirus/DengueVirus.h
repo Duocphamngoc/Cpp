@@ -6,7 +6,8 @@ private:
 public:
 	DengueVirus();
 	~DengueVirus();
-	void DoBorn() override;
 	void Get_Properties();
+	void DoBorn() override;
+	DengueVirus* DoClone() override;
 
 };

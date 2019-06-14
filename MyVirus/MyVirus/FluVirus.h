@@ -5,6 +5,9 @@ private:
 public:
 	FluVirus();
 	~FluVirus();
+	void Get_Properties();
 	void DoBorn() override;
+	FluVirus* DoClone( ) override;
+
 
 };
