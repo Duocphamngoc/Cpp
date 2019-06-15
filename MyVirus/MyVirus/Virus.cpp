@@ -22,6 +22,7 @@ void Virus::Get_Properties() {
 		cout << m_dna[i];
 		i++;
 	}
+	cout << endl << m_resistance;
 }
 
 void Virus::LoadADNInformation() {

@@ -10,6 +10,7 @@
 using namespace std;
 FluVirus::FluVirus() {
 	DoBorn();
+	InitResistance();
 }
 
 FluVirus::~FluVirus() {
@@ -31,6 +32,7 @@ void FluVirus::Get_Properties()
 	else {
 		Virus::Get_Properties();
 		cout << endl << this->m_color << endl;
+	
 	}
 }
 
@@ -66,4 +68,16 @@ void FluVirus::DoDie() {
 	else {
 		delete this;
 	}
+}
+
+void FluVirus::InitResistance() {
+	if (this->m_color == 255) {
+		srand(time(NULL));
+		this->m_resistance = 10 + rand() % 5;
+	}
+	else {
+		srand(time(NULL));
+		this->m_resistance = 10 + rand() % 10;
+	}
+
 }

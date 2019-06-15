@@ -61,3 +61,7 @@ DengueVirus * DengueVirus::DoClone()
 void DengueVirus::DoDie() {
 	delete[] this;
 }
+
+void DengueVirus::InitResistance()
+{
+}

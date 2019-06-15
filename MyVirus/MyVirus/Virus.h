@@ -14,6 +14,6 @@ public:
 	virtual void DoBorn() = 0;
 	virtual Virus* DoClone() = 0;
 	virtual void DoDie()=0;
-	//	virtual void InitResistance()=0;
+	virtual void InitResistance()=0;
 };
 #pragma once

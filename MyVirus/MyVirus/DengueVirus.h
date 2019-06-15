@@ -10,4 +10,5 @@ public:
 	void DoBorn() override;
 	DengueVirus* DoClone() override;
 	void DoDie() override;
+	void InitResistance() override;
 };
