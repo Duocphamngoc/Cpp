@@ -4,17 +4,14 @@
 #include "Virus.h"
 #include "DengueVirus.h"
 #include "FluVirus.h"
-
+#include "Patient.h"
 
 
 int main()
 {
-	FluVirus* flu = new FluVirus();
-	FluVirus* flu_F1;
-	flu_F1 = flu->DoClone();
-	flu->Get_Properties();
-	flu_F1->Get_Properties();
-
+	
+	Patient* p = new Patient();
+	p->GetPropertiesPatient();
 
 	system("pause");
 	return 0;
