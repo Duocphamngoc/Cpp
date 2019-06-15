@@ -7,13 +7,13 @@ protected:
 public:
 	Virus();
 	~Virus();
+	Virus(const Virus*);
 	void LoadADNInformation();
 	void ReduceResistance(int);
 	void Get_Properties();
 	virtual void DoBorn() = 0;
 	virtual Virus* DoClone() = 0;
-
-	//	virtual void DoDie()=0;
+	virtual void DoDie()=0;
 	//	virtual void InitResistance()=0;
 };
 #pragma once

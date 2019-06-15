@@ -57,3 +57,7 @@ DengueVirus * DengueVirus::DoClone()
 	}
 	return F1;
 }
+
+void DengueVirus::DoDie() {
+	delete[] this;
+}
