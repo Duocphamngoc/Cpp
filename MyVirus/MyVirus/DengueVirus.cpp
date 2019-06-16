@@ -4,27 +4,24 @@
 #include "string"
 #include <cstdlib>
 #include <ctime>
+#include <list>
 
 using namespace std;
 
 DengueVirus::DengueVirus() {
-	DoBorn();
+//	cout << "contructor DengueVirus is called!"<<endl;
+	this->DoBorn();
+	this->InitResistance();
 }
 
 DengueVirus::~DengueVirus() {
-
+	cout<<"Destructor DenVirus is called"<<endl;
 }
-void DengueVirus::Get_Properties() {
-	Virus::Get_Properties();
-	cout << endl;
-	int j = 0;
-	while (j < 3) {
-		cout << this->m_protein[j];
-		j++;
-	}
-	cout << endl;
-
+DengueVirus::DengueVirus(const DengueVirus *)
+{
+	//cout << "Copy Contructor DenVirus is called!" << endl;
 }
+
 void DengueVirus::DoBorn() {
 	LoadADNInformation();
 	srand(time(NULL));
@@ -47,21 +44,49 @@ void DengueVirus::DoBorn() {
 	}
 }
 
-DengueVirus * DengueVirus::DoClone()
+list<Virus*> DengueVirus::DoClone()
 {
-	DengueVirus* F1 = new DengueVirus[2];
-	for (int i = 0; i < 2; i++) {
-		(F1 + i)->m_protein = this->m_protein;
-		(F1 + i)->m_dna = this->m_dna;
-		(F1 + i)->m_resistance = this->m_resistance;
-	}
-	return F1;
+//	cout << "DoClone denVirus is called" << endl;
+	list<Virus*> listDen;
+	DengueVirus* F1 = new DengueVirus(this);
+	listDen.push_front(F1);
+	listDen.push_front(F1);
+	return listDen;
 }
 
 void DengueVirus::DoDie() {
-	delete[] this;
+	if (this->m_dna =nullptr) return;
+	else	delete this;
 }
 
 void DengueVirus::InitResistance()
 {
+	srand(time(NULL));
+	if (this->m_protein == "NS3") {
+		this->m_resistance = 0+rand() % 10;
+		cout << "Denguevirus NS3 is called with " << this->m_resistance << " blood" << endl;
+	}
+	else if (this->m_protein == "NS5") {
+		this->m_resistance = 11 + rand() % 10;
+		cout << "DengueVirus NS5 is called with "<<this->m_resistance<<" blood" << endl;
+	}
+	else {
+		
+		this->m_resistance = 21 + rand() % 10;
+		cout << "DengueVirus E is called with " <<this->m_resistance<<" blood"<< endl;
+	}
+
+}
+
+//view infor
+void DengueVirus::Get_Properties() {
+	Virus::Get_Properties();
+	cout << endl;
+	int j = 0;
+	while (j < 3) {
+		cout << this->m_protein[j];
+		j++;
+	}
+	cout << endl;
+
 }

@@ -14,6 +14,8 @@ public:
 	void GetPropertiesPatient();
 	void InitResistance();
 	void DoStart();
-	void TakeMadecine();
+	void TakeMadecine(int );
+	list <Virus *> GetList();
+	int GetState();
 
 };

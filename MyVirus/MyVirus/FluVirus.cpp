@@ -4,60 +4,51 @@
 #include "string"
 #include <cstdlib>
 #include <ctime>
+#include <windows.h>
 #define  blue 0x0000ff 
 #define red 0xff0000
 
 using namespace std;
 FluVirus::FluVirus() {
-	DoBorn();
-	InitResistance();
-	cout << "1"<<endl;
+	//cout<<"Contructor FluVirus is called!"<<endl;
+	this->DoBorn();
+	this->InitResistance();
 }
 
 FluVirus::~FluVirus() {
+	cout << "Destructor Flu is called" << endl;
 	//DoDie();
 }
 
 FluVirus::FluVirus(FluVirus* fluvirus) {
-	this->m_color = fluvirus->m_color;
 
+	//cout << "copy contructor fluVirus is called!"<<endl;
 }
 
-void FluVirus::Get_Properties()
-{
-	if (this == nullptr) {
-		cout << "nothing"<<endl;
-	}
-	else {
-		Virus::Get_Properties();
-		cout << endl << this->m_color << endl;
-	
-	}
-}
 
 void FluVirus::DoBorn() {
+	//cout << "DoBorn FluVirus is called"<<endl;
 	Virus::LoadADNInformation();
 	srand(time(NULL));
 	int color = rand() % 2;
 	if (color) {
+	//	cout << "red is called" << endl;
 		this->m_color = red;
 	}
 	else {
+	//	cout << "blue is called" << endl;
 		this->m_color = blue;
 	}
 }
 
-FluVirus * FluVirus::DoClone()
+list<Virus*> FluVirus::DoClone()
 {
-	/*
-	FluVirus* F1 = new FluVirus();
-	F1->m_color = this->m_color;
-	F1->m_dna = this->m_dna;
-	F1->m_resistance = this->m_resistance;
-	return F1; 
-	*/
+
+	//cout << "DoClone Flu is called" << endl;
+	list<Virus*> listFlu;
 	FluVirus* F1 = new FluVirus(this);
-	return F1;
+	listFlu.push_front(F1);
+	return listFlu;
 }
 
 void FluVirus::DoDie() {
@@ -73,10 +64,24 @@ void FluVirus::InitResistance() {
 	if (this->m_color == 255) {
 		srand(time(NULL));
 		this->m_resistance = 10 + rand() % 5;
+		cout << "FluVirus Red is called with "<<this->m_resistance<<" blood " <<endl;
 	}
 	else {
 		srand(time(NULL));
 		this->m_resistance = 10 + rand() % 10;
+		cout << "FluVirus Blue is called with "<<this->m_resistance<<" blood" << endl;
 	}
 
+}
+//view infor virus 
+void FluVirus::Get_Properties()
+{
+	if (this == nullptr) {
+		cout << "nothing" << endl;
+	}
+	else {
+		Virus::Get_Properties();
+		cout << endl << this->m_color << endl;
+
+	}
 }

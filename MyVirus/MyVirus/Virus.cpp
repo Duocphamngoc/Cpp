@@ -25,13 +25,19 @@ Virus::Virus(const Virus*) {
 void Virus::Get_Properties() {
 	int unsigned i = 0;
 	while (i < 48) {
-		cout << m_dna[i];
+//		cout << m_dna[i];
 		i++;
 	}
-	cout << endl << m_resistance;
+	cout << endl << m_resistance<<endl;
+}
+
+int Virus::Get_m_resistance()
+{
+	return m_resistance;
 }
 
 void Virus::LoadADNInformation() {
+//	cout << "LoadADN is called" << endl;
 	fstream f;
 	f.open("ATGX.bin", ios::in);
 	string data = "";
@@ -39,9 +45,9 @@ void Virus::LoadADNInformation() {
 	{
 		getline(f, data);
 	}
-	m_dna = new char[100];
+	m_dna = new char[data.length()];
 	int unsigned i = 0;
-	while (i < data.length()) {
+	while (i <= data.length()) {
 		m_dna[i] = data[i];
 		i++;
 	}
@@ -50,7 +56,6 @@ void Virus::LoadADNInformation() {
 
 void Virus::ReduceResistance(int medicine_resistance) {
 	m_resistance -= medicine_resistance;
-	if (m_resistance <= 0) delete this;
 }
 
 
