@@ -79,7 +79,6 @@ void Patient::TakeMadecine(int medicine_resistance)
 			position1 = position;
 			position++;
 			m_virusList.erase(position1);
-			Sleep(10);
 			
 		}
 		
