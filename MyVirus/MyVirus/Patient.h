@@ -13,5 +13,7 @@ public:
 	~Patient();
 	void GetPropertiesPatient();
 	void InitResistance();
+	void DoStart();
+	void TakeMadecine();
 
 };

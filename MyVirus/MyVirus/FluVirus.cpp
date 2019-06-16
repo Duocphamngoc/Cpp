@@ -11,6 +11,7 @@ using namespace std;
 FluVirus::FluVirus() {
 	DoBorn();
 	InitResistance();
+	cout << "1"<<endl;
 }
 
 FluVirus::~FluVirus() {
@@ -19,8 +20,6 @@ FluVirus::~FluVirus() {
 
 FluVirus::FluVirus(FluVirus* fluvirus) {
 	this->m_color = fluvirus->m_color;
-	this->m_dna = fluvirus->m_dna;
-	this->m_resistance = fluvirus->m_resistance;
 
 }
 
@@ -37,7 +36,7 @@ void FluVirus::Get_Properties()
 }
 
 void FluVirus::DoBorn() {
-	LoadADNInformation();
+	Virus::LoadADNInformation();
 	srand(time(NULL));
 	int color = rand() % 2;
 	if (color) {

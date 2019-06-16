@@ -15,6 +15,12 @@ Virus::Virus() {
 Virus::~Virus() {
 
 }
+Virus::Virus(const Virus*) {
+	this->m_dna = m_dna;
+	this->m_resistance = m_resistance;
+
+}
+
 
 void Virus::Get_Properties() {
 	int unsigned i = 0;

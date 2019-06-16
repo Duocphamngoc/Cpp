@@ -11,8 +11,6 @@ int main()
 {
 	
 	Patient* p = new Patient();
-	p->GetPropertiesPatient();
-
 	system("pause");
 	return 0;
 }
