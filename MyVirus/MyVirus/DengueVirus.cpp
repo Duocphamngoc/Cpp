@@ -63,7 +63,7 @@ void DengueVirus::InitResistance()
 {
 	srand(time(NULL));
 	if (this->m_protein == "NS3") {
-		this->m_resistance = 0+rand() % 10;
+		this->m_resistance = 1+rand() % 10;
 		cout << "Denguevirus NS3 is called with " << this->m_resistance << " blood" << endl;
 	}
 	else if (this->m_protein == "NS5") {
