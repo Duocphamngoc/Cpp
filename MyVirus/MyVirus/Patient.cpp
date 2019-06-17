@@ -64,22 +64,19 @@ void Patient::TakeMadecine(int medicine_resistance)
 			total += virus->Get_m_resistance();
 			list<Virus*> list;
 			list = virus->DoClone();
-			denta += list.size();
+			denta = denta + list.size()+1;
 			//add virus clone into m_virusList
 			m_virusList.push_back(virus); // add virus parent
 			m_virusList.push_back(*list.begin()); //add virus child
 			list.pop_front();
 			if(!list.empty()) m_virusList.push_back(*list.begin()); //add virus child
-			cout << "Virus was saved and clone to child virus with amount of virus now is: " << m_virusList.size() << endl;
-			position++;
-			
+			cout << "Virus was saved and clone to child virus with amount of virus now is: " << m_virusList.size()<<" Virus" << endl;
+			position= m_virusList.erase(position);
 		}
 		else {
-			list<Virus*>::iterator position1;
-			position1 = position;
-			position++;
-			m_virusList.erase(position1);
-			
+		
+			position = m_virusList.erase(position);
+			cout << "Virus was Died-------Amount virus now: " << m_virusList.size() <<" Virus"<< endl;
 		}
 		
 		
