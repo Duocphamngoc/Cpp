@@ -13,11 +13,12 @@ Virus::Virus() {
 }
 
 Virus::~Virus() {
-
+	cout << "Destructor of Virus is called"<<endl;
+	m_dna = "";
 }
-Virus::Virus(const Virus*) {
-	this->m_dna = m_dna;
-	this->m_resistance = m_resistance;
+Virus::Virus(const Virus* a) {
+	this->m_dna = a->m_dna;
+	this->m_resistance = a->m_resistance;
 
 }
 
@@ -40,17 +41,12 @@ void Virus::LoadADNInformation() {
 //	cout << "LoadADN is called" << endl;
 	fstream f;
 	f.open("ATGX.bin", ios::in);
-	string data = "";
+	string data;
 	while (!f.eof())
 	{
 		getline(f, data);
 	}
-	m_dna = new char[data.length()];
-	int unsigned i = 0;
-	while (i <= data.length()) {
-		m_dna[i] = data[i];
-		i++;
-	}
+	this->m_dna = data;
 	f.close();
 }
 

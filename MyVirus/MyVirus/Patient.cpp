@@ -14,7 +14,12 @@ Patient::Patient() {
 	this->DoStart();
 }
 Patient::~Patient() {
-
+	list<Virus* >::iterator i;
+	for (auto i = m_virusList.begin(); i != m_virusList.end(); i++)
+	{
+		delete (*i);
+	}
+	m_virusList.clear();
 }
 
 void Patient::GetPropertiesPatient()
@@ -33,6 +38,7 @@ void Patient::DoStart()
 	this->m_state = 1;
 	srand(time(NULL));
 	int amountVirus = 10 + rand() % 11;
+	cout << endl << amountVirus << endl;
 	for (int i = 0; i < amountVirus;i++) {
 		srand(time(NULL));
 		Sleep(500);
@@ -40,10 +46,10 @@ void Patient::DoStart()
 		switch (luckynumber)
 		{
 		case 0:
-			m_virusList.push_front(new FluVirus);
+			m_virusList.push_back(new FluVirus);
 			break;
 		case 1:
-			m_virusList.push_front(new DengueVirus);
+			m_virusList.push_back(new DengueVirus);
 			break;
 		}
 	}
@@ -56,8 +62,8 @@ void Patient::TakeMadecine(int medicine_resistance)
 	Virus * virus;
 	int total=0;
 	int denta = m_virusList.size();
-
-	for (int i = 0; i < denta;i++) {
+	int count = 0;
+	for (position; position != m_virusList.end();) {
 		virus = *position;
 		virus->ReduceResistance(medicine_resistance);
 		if (virus->Get_m_resistance() > 0) {
@@ -66,20 +72,29 @@ void Patient::TakeMadecine(int medicine_resistance)
 			list = virus->DoClone();
 			denta = denta + list.size()+1;
 			//add virus clone into m_virusList
-			m_virusList.push_back(virus); // add virus parent
-			m_virusList.push_back(*list.begin()); //add virus child
+			 // add virus parent
+			m_virusList.push_front(*list.begin()); //add virus child
 			list.pop_front();
-			if(!list.empty()) m_virusList.push_back(*list.begin()); //add virus child
+			if (!list.empty()) {
+				m_virusList.push_back(*list.begin()); //add virus child
+				list.pop_front();
+			}
 			cout << "Virus was saved and clone to child virus with amount of virus now is: " << m_virusList.size()<<" Virus" << endl;
-			position= m_virusList.erase(position);
+			position++;
 		}
 		else {
-		
-			position = m_virusList.erase(position);
-			cout << "Virus was Died-------Amount virus now: " << m_virusList.size() <<" Virus"<< endl;
+
+			
+			
+		//	position = m_virusList.erase(position);
+			cout << "Virus was Died-------Amount virus now: " << m_virusList.size() <<" Virus------"<<++count<< endl;
+			list<Virus*>::iterator pos = position;
+			position++;
+			delete *pos;
+			*pos = nullptr;
+			m_virusList.erase(pos);
+			
 		}
-		
-		
 	}
 	cout << endl << "Medicine_Resistance: " << medicine_resistance << endl;
 	cout << endl << "Total Resistance of Virus: " << total <<" blood"<< endl;
