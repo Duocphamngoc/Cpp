@@ -16,32 +16,47 @@ DengueVirus::DengueVirus() {
 
 DengueVirus::~DengueVirus() {
 	cout<<"Destructor DenVirus is called"<<endl;
+	DoDie();
+	
 }
-DengueVirus::DengueVirus(const DengueVirus *)
+DengueVirus::DengueVirus(const DengueVirus * b)
 {
-	//cout << "Copy Contructor DenVirus is called!" << endl;
+	this->m_dna = b->m_dna;
+	this->m_resistance = b->m_resistance;
+	if (m_protein) {
+		delete[]m_protein;
+	}
+	m_protein = new char[strlen(b->m_protein) + 1];
+	for (int i = 0; i < strlen(b->m_protein); i++) {
+		m_protein[i] = b->m_protein[i];
+	}
+	*(m_protein + strlen(b->m_protein)) = '\0';
 }
 
 void DengueVirus::DoBorn() {
 	LoadADNInformation();
 	srand(time(NULL));
 	int idProtein = rand() % 3;
-	char* strProtein_1 = "NS3";
-	char* strProtein_2 = "NS5";
-	char* strProtein_3 = "E";
-	m_protein = new char[4];
+	string tmp;
+
+//	m_protein = new char[4];
 	switch (idProtein)
 	{
 	case 0:
-		m_protein = strProtein_1;
+		tmp = "NS3";
 		break;
 	case 1:
-		m_protein = strProtein_2;
+		tmp = "NS5";
 		break;
 	case 2:
-		m_protein = strProtein_3;
+		tmp = "E";
 		break;
 	}
+	m_protein = new char[tmp.size() + 1];
+	for (int i = 0; i < tmp.size(); i++) {
+		*(m_protein + i) = tmp[i];
+	}
+	*(m_protein + tmp.size()) = '\0';
 }
 
 list<Virus*> DengueVirus::DoClone()
@@ -49,14 +64,15 @@ list<Virus*> DengueVirus::DoClone()
 //	cout << "DoClone denVirus is called" << endl;
 	list<Virus*> listDen;
 	DengueVirus* F1 = new DengueVirus(this);
+	DengueVirus* F2 = new DengueVirus(this);
 	listDen.push_front(F1);
-	listDen.push_front(F1);
+	listDen.push_front(F2);
 	return listDen;
 }
 
 void DengueVirus::DoDie() {
-	if (this->m_dna =nullptr) return;
-	else	delete this;
+	delete[] m_protein;
+	m_protein = NULL;
 }
 
 void DengueVirus::InitResistance()

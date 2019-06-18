@@ -17,12 +17,14 @@ FluVirus::FluVirus() {
 
 FluVirus::~FluVirus() {
 	cout << "Destructor Flu is called" << endl;
+//	this->m_dna = nullptr;
 	//DoDie();
 }
 
-FluVirus::FluVirus(FluVirus* fluvirus) {
-
-	//cout << "copy contructor fluVirus is called!"<<endl;
+FluVirus::FluVirus(const FluVirus* fluvirus) {
+	
+	this->m_resistance = fluvirus->m_resistance;
+	this->m_color = fluvirus->m_color;
 }
 
 
@@ -47,7 +49,7 @@ list<Virus*> FluVirus::DoClone()
 	//cout << "DoClone Flu is called" << endl;
 	list<Virus*> listFlu;
 	FluVirus* F1 = new FluVirus(this);
-	listFlu.push_front(F1);
+	listFlu.push_back(F1);
 	return listFlu;
 }
 

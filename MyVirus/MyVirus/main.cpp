@@ -5,6 +5,7 @@
 #include "DengueVirus.h"
 #include "FluVirus.h"
 #include "Patient.h"
+#include "vld.h"
 using namespace std;
 
 int main()
@@ -20,8 +21,16 @@ int main()
 			int min = 1;
 			int max = 60;
 			int medicine_resistance = min + (rand() % (int)(max - min + 1));
-			p->TakeMadecine(medicine_resistance);
+			p->TakeMadecine(1);
+			if (p->GetState() == 1) break;
 		}
+	}
+	if (p == nullptr) {
+		return 0;
+	}
+	else {
+		delete p;
+		p = nullptr;
 	}
 	system("pause");
 	return 0;

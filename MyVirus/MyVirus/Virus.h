@@ -3,12 +3,12 @@
 using namespace std;
 class Virus {
 protected:
-	char* m_dna;
+	string m_dna;
 	int m_resistance;
 
 public:
 	Virus();
-	~Virus();
+	virtual ~Virus();
 	Virus(const Virus*);
 	void LoadADNInformation();
 	void ReduceResistance(int);
@@ -19,4 +19,3 @@ public:
 	virtual void DoDie()=0;
 	virtual void InitResistance()=0;
 };
-#pragma once
