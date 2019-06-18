@@ -18,6 +18,26 @@ mono_crash.*
 
 # Build results
 [Dd]ebug/
+!Debug/DengueVirus.obj
+!Debug/FluVirus.obj
+!Debug/main.obj
+!Debug/MyVirus.Build.CppClean.log
+!Debug/MyVirus.log
+!Debug/MyVirus.pch
+!Debug/Patient.obj
+!Debug/stdafx.obj
+!Debug/vc140.idb
+!Debug/vc140.pdb
+!Debug/Virus.obj
+!Debug/vld_x86.dll
+!Debug/dbghelp.dll
+!Debug/Microsoft.DTfW.DHL.manifest
+!Debug/vld_x86.dll
+!Debug/vld_x86.pdb
+!Debug/MyVirus.ilk
+!Debug/MyVirus.pdb
+
+
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
